@@ -1,0 +1,406 @@
+---
+// src/pages/blog.astro
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test_matrix // telemetry_lock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght=0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
+    <script is:inline>
+      const savedTheme = localStorage.getItem('schema-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+  </head>
+  <body>
+
+    <div class="test-frame">
+      
+      <!-- Top Heavy Instrumentation Bar -->
+      <header class="test-header">
+        <div class="h-left">
+          <div class="calibration-target"></div>
+          <span class="facility-id">FACILITY_ZONE // BLOCK_IDENTIFIER</span>
+        </div>
+        <div class="h-right">
+          <span>SERIES_RE_2850 // SEC_00</span>
+        </div>
+      </header>
+
+      <!-- Main Unified Content Stack -->
+      <main class="test-container">
+        
+        <!-- One Massive, Thick-Walled Containment Block -->
+        <article class="quarantine-block">
+          
+          <!-- Ultra-Thick Hazard Striping -->
+          <div class="hazard-strip"></div>
+          
+          <div class="block-inner">
+            
+            <h1 class="main-title">IN CONSTRUCTION</h1>
+            
+            <div class="abstract-content">
+              <p class="lead-text">
+                </p>
+              <p class="body-text">
+                articles will be added when i gain enough confidence to publish them :p
+            </p>
+            </div>
+
+            <!-- Embedded Calibration Crosshair Component -->
+            <div class="schematic-spacer">
+              <div class="crosshair-axis horizontal"></div>
+              <div class="crosshair-axis vertical"></div>
+              <div class="calibration-target large"></div>
+            </div>
+
+            
+
+          </div>
+        </article>
+
+      </main>
+
+      <!-- Bottom Control Interface Deck -->
+      <footer class="test-footer">
+        <a href="/" class="escape-link">
+          <span class="arrow">←</span> escape to primary index
+        </a>
+        <div class="footer-actions">
+          <button id="theme-toggle" class="spectrum-toggle">// invert_spectrum</button>
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>static_isolation</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- Minimal Script for Theme Toggle System -->
+    <script>
+      const themeToggle = document.getElementById('theme-toggle');
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('schema-theme', nextTheme);
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  /* Stark Crash Test Dummy Design Tokens — Heavy Lines & White Canvas */
+  :root[data-theme="dark"] {
+    --t-bg-raw: #000000;
+    --t-bg-canvas: #0a0a0a;
+    --t-bg-card: #111111;
+    --t-ink-bold: #ffffff;
+    --t-ink-muted: #666666;
+    --t-border: #ffffff;
+    --t-line-thickness: 8px;
+    --t-sub-thickness: 4px;
+    
+    /* Warning Accents */
+    --t-vis-yellow: #fcd116; 
+    --t-vis-orange: #ff5500;
+  }
+
+  :root[data-theme="light"] {
+    --t-bg-raw: #ffffff;
+    --t-bg-canvas: #ffffff;
+    --t-bg-card: #ffffff;
+    --t-ink-bold: #000000;
+    --t-ink-muted: #555555;
+    --t-border: #000000;
+    --t-line-thickness: 8px;
+    --t-sub-thickness: 4px;
+    
+    /* Warning Accents */
+    --t-vis-yellow: #fcd116; 
+    --t-vis-orange: #e04400;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--t-bg-raw);
+    color: var(--t-ink-bold);
+    font-family: 'Archivo', sans-serif;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+    overflow: hidden;
+  }
+
+  .test-frame {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+
+  /* Universal Instrumentation Header */
+  .test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--t-ink-bold);
+    color: var(--t-bg-raw);
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: var(--t-line-thickness) solid var(--t-border);
+  }
+
+  .h-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Conic Crash Test Calibration Target Symbol */
+  .calibration-target {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #000000 25%, 
+      #fcd116 25% 50%, 
+      #000000 50% 75%, 
+      #fcd116 75%
+    );
+    border: 2px solid #000000;
+    flex-shrink: 0;
+  }
+  .calibration-target.large {
+    width: 64px;
+    height: 64px;
+    border: var(--t-sub-thickness) solid var(--t-border);
+    position: relative;
+    z-index: 5;
+    background: conic-gradient(
+      var(--t-ink-bold) 25%, 
+      var(--t-vis-yellow) 25% 50%, 
+      var(--t-ink-bold) 50% 75%, 
+      var(--t-vis-yellow) 75%
+    );
+  }
+
+  /* Main Scrollable Center Deck */
+  .test-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 64px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--t-bg-canvas);
+  }
+
+  /* Single Concrete Structural Container */
+  .quarantine-block {
+    width: 100%;
+    max-width: 760px;
+    border: var(--t-line-thickness) solid var(--t-border);
+    background: var(--t-bg-card);
+    box-shadow: 12px 12px 0px var(--t-border);
+  }
+
+  /* Thick Bold Warning Chevrons / Stripes */
+  .hazard-strip {
+    height: 32px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #000000,
+      #000000 20px,
+      var(--t-vis-yellow) 20px,
+      var(--t-vis-yellow) 40px
+    );
+    border-bottom: var(--t-line-thickness) solid var(--t-border);
+  }
+
+  .block-inner {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .meta-stamp {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--t-ink-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .main-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    margin: 0;
+    line-height: 0.85;
+    text-transform: uppercase;
+  }
+
+  .abstract-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 580px;
+  }
+
+  .lead-text {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .body-text {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--t-ink-muted);
+    margin: 0;
+  }
+
+  /* Central Geometric Alignment Marker */
+  .schematic-spacer {
+    height: 120px;
+    border-top: var(--t-sub-thickness) dashed var(--t-border);
+    border-bottom: var(--t-sub-thickness) dashed var(--t-border);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+  }
+
+  .crosshair-axis {
+    position: absolute;
+    background-color: var(--t-border);
+  }
+  .crosshair-axis.horizontal {
+    width: 100%;
+    height: 2px;
+  }
+  .crosshair-axis.vertical {
+    width: 2px;
+    height: 100%;
+  }
+
+  /* Solid Stamped Metric Row Setup */
+  .metrics-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: var(--t-sub-thickness) solid var(--t-border);
+    background: var(--t-border);
+    gap: var(--t-sub-thickness);
+  }
+
+  @media (max-width: 600px) {
+    .metrics-strip {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .metric-node {
+    background: var(--t-bg-card);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+  }
+
+  .metric-node.highlight-yellow {
+    background: var(--t-vis-yellow);
+    color: #000000;
+  }
+  .metric-node.highlight-yellow .m-lbl {
+    color: #222222;
+  }
+
+  .m-lbl {
+    color: var(--t-ink-muted);
+    text-transform: uppercase;
+  }
+
+  .m-val {
+    font-weight: 700;
+  }
+
+  /* System Footer Deck Layout */
+  .test-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: var(--t-bg-raw);
+    border-top: var(--t-line-thickness) solid var(--t-border);
+    font-family: monospace;
+    font-size: 0.8rem;
+    z-index: 10;
+  }
+
+  .escape-link {
+    color: var(--t-ink-bold);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .escape-link:hover {
+    text-decoration: underline;
+  }
+
+  .footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .spectrum-toggle {
+    background: transparent;
+    border: none;
+    color: var(--t-ink-bold);
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    text-transform: uppercase;
+  }
+  .spectrum-toggle:hover {
+    color: var(--t-vis-orange);
+  }
+
+  .status-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--t-ink-bold);
+    color: var(--t-bg-raw);
+    padding: 6px 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--t-vis-orange);
+  }
+</style>

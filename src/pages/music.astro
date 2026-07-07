@@ -1,0 +1,439 @@
+---
+// src/pages/music.astro
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>numogram // music_matrix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght=0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
+    <script is:inline>
+      const savedTheme = localStorage.getItem('schema-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+  </head>
+  <body>
+
+    <div class="monograph-frame">
+      
+      <header class="schema-header">
+        <div class="meta-left">// sonic_output //</div>
+        <div class="meta-right">plate_4.00 // anorganic_feedback</div>
+      </header>
+
+      <main class="diagram-matrix">
+        
+        <section class="dossier-left">
+          <div class="sticky-manifesto">
+            <span class="dossier-index">// tic_system_log</span>
+            <h1 class="dossier-heading">sonic outputs</h1>
+            
+            <p class="dossier-lead">
+                output from 2024 to present
+            </p>
+
+            <p class="dossier-subtext">
+                created using a boss loop pedal, custom laoptop-frankensteined looper, electric guitar, electric bass, keyboard and zoom ms-50g pedal
+            </p>
+
+            
+
+            <div class="artist-nexus-panel">
+              <a href="https://open.spotify.com/artist/0GHsdPR8sEZ7KCdaA1IonV" target="_blank" rel="noopener noreferrer" class="nexus-btn">
+                [ open_global_artist_profile ↗ ]
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="dossier-right">
+          
+          <div class="artist-profile-container">
+            <div class="matrix-divider">// top_tracks //</div>
+            <div class="artist-card">
+              <iframe 
+                src="https://open.spotify.com/embed/artist/0GHsdPR8sEZ7KCdaA1IonV" 
+                width="100%" 
+                height="380" 
+                frameborder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="matrix-divider">// discography //</div>
+
+          <div class="album-grid">
+            
+            <div class="album-card">
+              <div class="album-meta">// release_05 //</div>
+              <iframe 
+                src="https://open.spotify.com/embed/album/4ma6Ogkqjb14nCjnuJuysg" 
+                width="100%" 
+                height="352" 
+                frameborder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+
+            <div class="album-card">
+              <div class="album-meta">// release_04 //</div>
+              <iframe 
+                src="https://open.spotify.com/embed/album/0s7vr1yNM1o2nqoVwPnIUq" 
+                width="100%" 
+                height="352" 
+                frameborder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+
+            <div class="album-card">
+              <div class="album-meta">// release_03 //</div>
+              <iframe 
+                src="https://open.spotify.com/embed/album/1IPZ5JYjQjEUPwWBtI5aBT" 
+                width="100%" 
+                height="352" 
+                frameborder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+
+            <div class="album-card">
+              <div class="album-meta">// release_02 //</div>
+              <iframe 
+                src="https://open.spotify.com/embed/album/1ny2NdBuMcSEabHOVlvOvw" 
+                width="100%" 
+                height="352" 
+                frameborder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+
+            <div class="album-card full-width-card">
+              <div class="album-meta">// release_01 //</div>
+              <iframe 
+                src="https://open.spotify.com/embed/album/0P62Dq53Xr6GwNHOQ1rZov" 
+                width="100%" 
+                height="352" 
+                frameborder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+      <footer class="schema-footer">
+        <a href="/" class="return-node">← return to core schema index</a>
+        <div class="footer-controls">
+          <button id="theme-toggle" class="theme-btn" aria-label="toggle system spectrum">// invert_spectrum</button>
+          <span class="system-status">status // view_equilibrium</span>
+        </div>
+      </footer>
+
+    </div>
+
+    <script>
+      // Global Theme System Controls
+      const themeToggle = document.getElementById('theme-toggle');
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('schema-theme', nextTheme);
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  /* Dual-Spectrum Global Tokens */
+  :root[data-theme="dark"] {
+    --bg-raw: #050505;
+    --bg-canvas: #090909;
+    --ink-stark: #ffffff;
+    --ink-muted: #666666;
+    --ink-ghost: #222222;
+  }
+
+  :root[data-theme="light"] {
+    --bg-raw: #f5f5f5;
+    --bg-canvas: #ededed;
+    --ink-stark: #050505;
+    --ink-muted: #888888;
+    --ink-ghost: #dcdcdc;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-raw);
+    color: var(--ink-stark);
+    font-family: 'Archivo', 'Helvetica Neue', sans-serif;
+    text-transform: lowercase;
+    overflow: hidden;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .monograph-frame {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .schema-header, .schema-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    letter-spacing: -0.01em;
+    border-bottom: 4px solid var(--ink-stark);
+    background: var(--bg-raw);
+    z-index: 10;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+  
+  .schema-footer {
+    border-bottom: none;
+    border-top: 4px solid var(--ink-stark);
+  }
+
+  .footer-controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .theme-btn {
+    background: transparent;
+    border: none;
+    color: var(--ink-stark);
+    font-family: monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+    font-weight: 700;
+  }
+  .theme-btn:hover {
+    color: var(--ink-muted);
+  }
+
+  .return-node {
+    color: var(--ink-stark);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .return-node:hover {
+    text-decoration: underline;
+  }
+
+  /* Two-Column Asymmetric Layout */
+  .diagram-matrix {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    overflow: hidden;
+  }
+
+  @media (max-width: 900px) {
+    .diagram-matrix {
+      grid-template-columns: 1fr;
+      overflow-y: auto;
+    }
+    .dossier-left {
+      border-right: none !important;
+      border-bottom: 4px solid var(--ink-stark);
+    }
+    .sticky-manifesto {
+      position: relative !important;
+      top: 0 !important;
+    }
+  }
+
+  /* Left Side Panel */
+  .dossier-left {
+    border-right: 4px solid var(--ink-stark);
+    background: var(--bg-canvas);
+    padding: 64px;
+    position: relative;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .sticky-manifesto {
+    position: sticky;
+    top: 64px;
+  }
+
+  .dossier-index {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .dossier-heading {
+    font-size: 3.2rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    margin: 0 0 24px 0;
+  }
+
+  .dossier-lead {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--ink-stark);
+    margin: 0 0 24px 0;
+    max-width: 420px;
+  }
+
+  .dossier-subtext {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    margin: 0 0 48px 0;
+    max-width: 420px;
+  }
+
+  .coordinate-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 2px dashed var(--ink-ghost);
+    padding-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .coord-row {
+    display: flex;
+    gap: 16px;
+    font-family: monospace;
+    font-size: 0.9rem;
+  }
+
+  .coord-label {
+    color: var(--ink-muted);
+    width: 100px;
+    flex-shrink: 0;
+  }
+
+  .coord-value {
+    color: var(--ink-stark);
+    font-weight: 700;
+  }
+
+  .artist-nexus-panel {
+    border-top: 2px dashed var(--ink-ghost);
+    padding-top: 24px;
+  }
+
+  .nexus-btn {
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--ink-stark);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .nexus-btn:hover {
+    color: var(--ink-muted);
+  }
+
+  /* Right Side Panel */
+  .dossier-right {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 64px;
+    gap: 32px;
+    background: var(--bg-raw);
+  }
+
+  .artist-profile-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .artist-card iframe {
+    border: 4px solid var(--ink-stark) !important;
+    border-radius: 0 !important;
+    background: #000000;
+    display: block;
+  }
+
+  /* SPOTIFY EMBED TARGETING GRID */
+  .matrix-divider {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    border-bottom: 2px solid var(--ink-ghost);
+    padding-bottom: 8px;
+    margin-top: 8px;
+    text-transform: lowercase;
+  }
+
+  .album-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 1200px) {
+    .album-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .album-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Forces the 5th album to span full width on widescreen layouts to look deliberate */
+  .full-width-card {
+    grid-column: span 2;
+  }
+
+  @media (max-width: 1200px) {
+    .full-width-card {
+      grid-column: span 1;
+    }
+  }
+
+  .album-meta {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+  }
+
+  .album-card iframe {
+    border: 4px solid var(--ink-stark) !important;
+    border-radius: 0 !important;
+    background: #000000;
+  }
+</style>

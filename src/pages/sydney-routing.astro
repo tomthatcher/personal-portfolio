@@ -1,0 +1,380 @@
+---
+// COMPONENT SCRIPT: Pure, active JavaScript execution space
+const title = "Sydney Custom Quiet Routing Engine";
+const pubDate = "2026-06-27";
+const description = "Inverting network topologies using raster zonal statistics to map pristine backroad transit paths.";
+const author = "Tom Thatcher";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght=0,500;0,700;0,900;1,900&family=Space+Mono:ital,wght=0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script is:inline>
+      const savedTheme = localStorage.getItem('schema-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+
+<div class="system-frame">
+    <div class="corner-tag top-left">SYS.LOC // 0x33S</div>
+    <div class="corner-tag bottom-right">v1.04_ROUTING</div>
+
+    <header class="schema-header">
+        <div class="sys-status">
+            <span>Graph Extraction: Spatial Inversion Engine</span>
+            <span>Status: [ACTIVE_TRACING]</span>
+        </div>
+        <div class="title-group">
+            <h1>inverting the city mesh</h1>
+            <span class="scientific-subtitle">A PostGIS Approach to Minoritarian Lines of Flight</span>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        
+        <div class="theory-block">
+            <p><strong>[ABSTRACT]</strong> Traditional spatial routing algorithms operate on a fundamentally reactive premise: they optimize for the shortest path or rely blindly on state-mandated majoritarian cycling lanes (Chronos). By defaulting to these pre-striated channels, they steer bodies into hyper-congested, high-intensity transit corridors. This project actively affirms a different vector—building a custom spatial graph routing engine designed to uncover the quiet, dark gaps within the urban heatmap, mapping smooth nomadic alternatives through the city grid.</p>
+            
+            <div class="highlight-box">
+                // TOPOLOGICAL REBELLION: The city is a striated field of capture. To avoid the reactive herds of the main arterials, the graph engine recalculates spatial cost metrics to actively prioritize difference, solitude, and systemic low-stress multiplicity.
+            </div>
+
+            <h2>The Problem: Intersection Vertex Distortion</h2>
+            <p>Early standard iterations of spatial analysis utilized naive point-based data sampling at graph intersections to determine street popularity. This created a profound "vertex trap." Quiet, isolated backroads that happened to terminate at or intersect a heavily trafficked arterial artificially inherited the high congestion scores of the major road. This structural feedback loop broke network connectivity, introducing false penalties that truncated completely valid, pristine cross-city routes. It was an engineering manifestation of bad conscience—allowing a single major corridor to poison the surrounding spatial lines of flight.</p>
+        </div>
+
+        <div class="spatial-canvas-container">
+            <div class="map-wrapper">
+                <div id="map"></div>
+            </div>
+            
+            <script is:inline>
+              // Center coordinates targeting Sydney [-33.8688, 151.2093]
+              const map = L.map('map').setView([-33.8688, 151.2093], 13);
+
+              // Sleek, dark-themed base map tiles matching the dual-spectrum system frame
+              L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+              }).addTo(map);
+
+              // Custom spatial point marker at a core routing destination
+              L.marker([-33.8688, 151.2093]).addTo(map)
+                .bindPopup('<b>Sydney Routing Hub</b><br>Network topology cost calculation node.')
+                .openPopup();
+            </script>
+        </div>
+
+        <div class="theory-block" style="margin-top: 20px;">
+            <h2>The Engineering Pipeline</h2>
+            <p>To resolve vertex contamination and bypass the reactive traps of point-based sampling, the calculation was shifted from point intersections directly to the true spatial body of the road lines:</p>
+            
+            <p><strong>1. Polygon Buffering:</strong> Generated ~2-meter wide ribbon polygons from the raw road segment vectors (<code>sydney_edges</code>) to explicitly capture the physical footprint of each corridor and account for minor positional tracking inaccuracies.</p>
+            
+            <p><strong>2. Zonal Statistics Extraction:</strong> Sampled a high-resolution Strava cycling heatmap raster underneath the generated ribbon polygons, extracting authentic pixel mean values (<code>tiff_mean</code>) along the entire continuous span of the segment rather than relying on point coordinates.</p>
+            
+            <p><strong>3. Topological Database Injection:</strong> Uploaded the canvas data directly back into PostgreSQL, caching the unified values in a dedicated <code>true_tiff_popularity</code> column within the spatial database matrix.</p>
+            
+            <p><strong>4. Inverted Cost Calculations:</strong> Multiplied geometric line lengths by exponential penalty weights for high-popularity segments, transforming standard physical distance into an active psychological and environmental index:</p>
+
+            <div class="code-container">
+                <pre><code class="language-sql">{`UPDATE public.sydney_edges 
+SET routing_cost = ST_Length(geom) * (
+    CASE 
+        WHEN true_tiff_popularity > 200 THEN 10.0  -- High Congestion Majoritarian Channel
+        WHEN true_tiff_popularity > 100 THEN 5.0   
+        WHEN true_tiff_popularity > 20  THEN 2.0   
+        ELSE 1.0                                   -- Pure, Non-Regulated Nomadic Space
+    END
+);`}</code></pre>
+            </div>
+
+            <h2>The Results</h2>
+            <p>By deploying <code>pgr_dijkstra</code> across the inverted cost topology, the graph engine successfully mapped out a fully connected, 69-segment cross-city journey. Instead of being funneled into glowing traffic hubs, the path intentionally skates through the silent interstitial folds of the urban environment—opening up an entirely data-driven framework for low-stress transit routing that actively affirms variation over standard efficiency metrics.</p>
+        </div>
+
+    </div>
+
+    <footer class="schema-footer">
+        <a href="/projects" class="return-node">← return to core schema index</a>
+        <div class="footer-controls">
+            <button id="theme-toggle" class="theme-btn" aria-label="toggle system spectrum">// invert_spectrum</button>
+            <span class="system-status" id="panel-status">status // mapping_active_lines</span>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('schema-theme', nextTheme);
+    });
+</script>
+
+</body>
+</html>
+
+<style>
+    /* Integrated Dual-Spectrum Style System */
+    :root[data-theme="dark"] {
+        --bg-raw: #050505;
+        --bg-canvas: #090909;
+        --ink-stark: #ffffff;
+        --ink-muted: #666666;
+        --ink-ghost: #222222;
+        --accent-orange: #ff4500;
+        --accent-green: #00ffaa;
+        --map-filter: grayscale(1) invert(1) contrast(1.1);
+    }
+
+    :root[data-theme="light"] {
+        --bg-raw: #f5f5f5;
+        --bg-canvas: #ededed;
+        --ink-stark: #050505;
+        --ink-muted: #888888;
+        --ink-ghost: #dcdcdc;
+        --accent-orange: #ff4500;
+        --accent-green: #00aa66;
+        --map-filter: none;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: var(--bg-raw);
+        color: var(--ink-stark);
+        font-family: 'Space Mono', 'Courier New', monospace;
+        transition: background-color 0.15s ease, color 0.15s ease;
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    @media (min-width: 768px) {
+        body {
+            padding: 40px;
+        }
+    }
+
+    .system-frame {
+        border: 4px solid var(--ink-stark);
+        position: relative;
+        padding: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: var(--bg-raw);
+        transition: border-color 0.15s ease;
+    }
+
+    .corner-tag {
+        position: absolute;
+        font-size: 10px;
+        background: var(--ink-stark);
+        color: var(--bg-raw);
+        padding: 2px 6px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: monospace;
+    }
+    .top-left { top: -4px; left: -4px; }
+    .bottom-right { bottom: -4px; right: -4px; }
+
+    header.schema-header {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 4px solid var(--ink-stark);
+        padding-bottom: 24px;
+        margin-bottom: 30px;
+        transition: border-color 0.15s ease;
+    }
+
+    .sys-status {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--accent-green);
+        text-transform: lowercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .title-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-family: 'Archivo', 'Arial Black', sans-serif;
+        font-size: clamp(2rem, 4.5vw, 3.8rem);
+        font-weight: 900;
+        text-transform: lowercase;
+        line-height: 0.95;
+        color: var(--ink-stark);
+        letter-spacing: -0.04em;
+        margin: 0;
+    }
+
+    .scientific-subtitle {
+        font-family: 'Archivo', sans-serif;
+        font-size: clamp(1rem, 1.8vw, 1.4rem);
+        color: var(--accent-orange);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-top: 8px;
+    }
+
+    h2 {
+        font-family: 'Archivo', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-transform: lowercase;
+        color: var(--accent-orange);
+        margin-top: 30px;
+        margin-bottom: 15px;
+        letter-spacing: -0.01em;
+    }
+
+    .main-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .theory-block {
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--ink-stark);
+        text-align: justify;
+    }
+
+    .highlight-box {
+        border-left: 4px solid var(--accent-orange);
+        background: var(--bg-canvas);
+        padding: 18px;
+        margin: 25px 0;
+        font-size: 13px;
+        color: var(--ink-stark);
+        transition: background-color 0.15s ease;
+    }
+
+    .spatial-canvas-container {
+        border: 2px solid var(--ink-ghost);
+        padding: 15px;
+        background: var(--bg-canvas);
+        transition: background-color 0.15s ease, border-color 0.15s ease;
+        margin: 15px 0;
+    }
+
+    .map-wrapper {
+        border: 2px solid var(--ink-stark);
+        background: var(--bg-raw);
+        height: 450px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #map {
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+    }
+
+    /* Keep Leaflet interface highly visible but aligned with theme tones */
+    :root[data-theme="dark"] .leaflet-layer,
+    :root[data-theme="dark"] .leaflet-control-zoom-in,
+    :root[data-theme="dark"] .leaflet-control-zoom-out {
+        filter: var(--map-filter);
+    }
+    
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+        background: var(--bg-raw) !important;
+        color: var(--ink-stark) !important;
+        border: 1px solid var(--ink-stark);
+        border-radius: 0px !important;
+        font-family: 'Space Mono', monospace;
+        font-size: 11px;
+    }
+
+    .code-container {
+        margin: 20px 0;
+        background: var(--bg-canvas);
+        border: 1px solid var(--ink-ghost);
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    .code-container pre {
+        margin: 0;
+    }
+
+    .code-container code {
+        font-family: 'Space Mono', monospace;
+        font-size: 13px;
+        color: var(--accent-green);
+    }
+
+    .schema-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 24px;
+        font-family: monospace;
+        font-size: 0.85rem;
+        border-top: 4px solid var(--ink-stark);
+        background: var(--bg-raw);
+        transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .footer-controls {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .theme-btn {
+        background: transparent;
+        border: none;
+        color: var(--ink-stark);
+        font-family: monospace;
+        font-size: 0.85rem;
+        cursor: pointer;
+        padding: 0;
+        text-transform: lowercase;
+        font-weight: 700;
+    }
+    .theme-btn:hover {
+        color: var(--ink-muted);
+    }
+
+    .return-node {
+        color: var(--ink-stark);
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .return-node:hover {
+        text-decoration: underline;
+    }
+
+    .system-status {
+        color: var(--ink-muted);
+    }
+</style>

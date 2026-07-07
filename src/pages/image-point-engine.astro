@@ -1,0 +1,409 @@
+---
+// COMPONENT SCRIPT: Active JavaScript Execution Scope
+const title = "Image-Point Vector Inversion Engine";
+const pubDate = "2026-07-06";
+const description = "A unified PyQGIS plugin architecture transforming static vector databases into dynamic, multi-modal spatial annotation canvases.";
+const author = "Tom Thatcher";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght=0,500;0,700;0,900;1,900&family=Space+Mono:ital,wght=0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <script is:inline>
+      const savedTheme = localStorage.getItem('schema-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+
+<div class="system-frame">
+    <div class="corner-tag top-left">SYS.EXT // 0x7F2B</div>
+    <div class="corner-tag bottom-right">v3.4_IMAGE_POINT</div>
+
+    <header class="schema-header">
+        <div class="sys-status">
+            <span>Module: PyQGIS Multi-Modal Synthesizer</span>
+            <span>Status: [PRODUCTION_DEPLOYED]</span>
+        </div>
+        <div class="title-group">
+            <h1>collapsing vector/canvas boundaries</h1>
+            <span class="scientific-subtitle">A Sovereign Approach to Multi-Modal Spatial Interaction</span>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        
+        <div class="theory-block">
+            <p><strong>[CORE THESIS]</strong> Standard Geographic Information Systems isolate vector primitives (points, lines, polygons) from the continuous, raw media captured on the ground. This separation is an engineering manifestation of bad conscience—forcing complex, multi-dimensional fieldwork into flat tables. The <strong>Image Point Tool</strong> actively breaks this isolation, overriding the mouse paradigm of desktop GIS via a unified <code>QgsMapToolCapture</code> framework. It merges vector geometries directly with independent imagery, custom raster sketching overlays, and cross-platform native execution vectors.</p>
+            
+            <div class="highlight-box">
+                // AFFIRMING MULTIPLICITY: Space is not merely a coordinate grid to be partitioned. By embedding custom Qt graphics contexts directly inside the spatial runtime, vectors sprout internal dimensions—linking continuous imagery, cross-platform document linking, and contextual metadata without interrupting layout velocity.
+            </div>
+
+            <h2>Architecture Overview: The Synthesizer Matrix</h2>
+            <p>The plugin breaks apart the rigid layout of standard GIS software by injecting an interconnected python topology across four core modules:</p>
+            <ul>
+                <li><strong><code>main_plugin.py</code> [The Sovereign Orchestrator]:</strong> Handles plugin assembly, garbage-managed docking panels, and encapsulates the custom <code>SmartInteractionTool</code> map state.</li>
+                <li><strong><code>gui_classes.py</code> [The Active Canvas Layer]:</strong> Implements a non-destructive <code>QGraphicsView</code> image canvas allowing raw pixel sketching, asynchronous multi-feature tracking, and modal configuration panels.</li>
+                <li><strong><code>helpers.py</code> [The Environmental Matrix]:</strong> Controls universal cross-platform document execution paths (Windows COM interfaces vs. Unix/Darwin system forks) and encapsulates core utility operations.</li>
+                <li><strong><code>__init__.py</code> [The Factory Link]:</strong> Exposes the raw plugin instantiation hook (<code>classFactory</code>) directly to the QGIS application core.</li>
+            </ul>
+        </div>
+
+        <div class="engineering-grid">
+            <div class="tech-card">
+                <h3>1. The Sovereign Mouse: SmartInteractionTool</h3>
+                <p>Instead of relying on alternating, reactive tools for creating, editing, and examining features, the plugin implements a unified tool state inheriting from <code>QgsMapToolCapture</code>. It intercepts map canvas clicks and calculates real-time spatial buffers to intelligently toggle interface states:</p>
+                <div class="code-container">
+                    <pre><code class="language-python">{`# Real-time spatial query buffering on mouse release
+point = self.toMapCoordinates(event.pos())
+tolerance = self.canvas.mapUnitsPerPixel() * 10
+hit_map, _ = self.scan_all_layers_at_point(point, tolerance)
+
+if hit_map:
+    self.handle_view_mode(hit_map) # Open dynamic image panel
+else:
+    super().canvasReleaseEvent(event) # Actively draw new geometry`}</code></pre>
+                </div>
+            </div>
+
+            <div class="tech-card">
+                <h3>2. Non-Destructive Vector Annotation Overlays</h3>
+                <p>Inside the <code>InteractiveGalleryView</code>, standard raster image viewing is elevated into an active canvas. Utilizing Qt's <code>QGraphicsScene</code> engine, users can sketch custom non-destructive annotation vector layers directly over imagery. These paths are captured via <code>QPainterPath</code> and cached back into individual feature metadata stores:</p>
+                <div class="code-container">
+                    <pre><code class="language-python">{`def mousePressEvent(self, event):
+    if self.is_drawing_mode and event.button() == Qt.LeftButton:
+        start_point = self.mapToScene(event.pos())
+        path = QPainterPath()
+        path.moveTo(start_point)
+        self.current_path_item = QGraphicsPathItem()
+        self.current_path_item.setPen(self.drawing_pen)
+        self.current_path_item.setPath(path)
+        self.scene.addItem(self.current_path_item)
+        self.drawn_items.append(self.current_path_item)`}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="theory-block" style="margin-top: 20px;">
+            <h2>Overcoming the Spatial Coordinate Trap (CRS Deformation)</h2>
+            <p>A frequent error in desktop spatial architectures is the projection mismatch—where field datasets are violently projected onto incorrect project canvases, breaking topological accuracy. The system actively protects spatial integrity by tracking coordinate reference system (CRS) deltas natively during feature isolation, running an on-the-fly matrix transform whenever layer CRS deviates from target canvas bounds:</p>
+
+            <div class="code-container">
+                <pre><code class="language-python">{`# --- CRS TRANSFORMATION LAYER ---
+dest_crs = QgsProject.instance().crs()
+source_crs = layer.crs()
+if source_crs != dest_crs:
+    xform = QgsCoordinateTransform(source_crs, dest_crs, QgsProject.instance())
+    geom.transform(xform)
+
+if geom.type() == QgsWkbTypes.PointGeometry:
+    self.iface.mapCanvas().setCenter(geom.asPoint())
+else:
+    self.iface.mapCanvas().setExtent(geom.boundingBox())`}</code></pre>
+            </div>
+
+            <h2>OS Deterritorialization: Cross-Platform Document Infrastructure</h2>
+            <p>To establish true multi-modal capability, spatial assets must connect effortlessly to external documentation. Rather than yielding to restrictive operating system barriers, the <code>helpers.py</code> environmental core implements abstract cross-platform system forks. It safely handles Windows COM automation (binding directly into deep Word application bookmarks via <code>win32com.client</code>) while simultaneously managing Unix-based Darwin (macOS) and Linux desktop sub-processes without dropping runtime thread execution:</p>
+
+            <div class="code-container">
+                <pre><code class="language-python">{`# --- CROSS-PLATFORM SYSTEM ABSTRACTION FORK ---
+if HAS_COM and bookmark and ext in ['.docx', '.doc']:
+    try:
+        word = win32com.client.Dispatch("Word.Application")
+        word.Visible = True
+        doc = word.Documents.Open(filepath)
+        try: doc.Bookmarks(bookmark).Select()
+        except: pass
+        return
+    except: pass
+
+if platform.system() == 'Windows':
+    os.startfile(filepath)
+elif platform.system() == 'Darwin':
+    subprocess.call(['open', filepath])
+else:
+    subprocess.call(['xdg-open', filepath])`}</code></pre>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="schema-footer">
+        <a href="/projects" class="return-node">← return to core schema index</a>
+        <div class="footer-controls">
+            <button id="theme-toggle" class="theme-btn" aria-label="toggle system spectrum">// invert_spectrum</button>
+            <span class="system-status" id="panel-status">status // synthesis_engine_online</span>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('schema-theme', nextTheme);
+    });
+</script>
+
+</body>
+</html>
+
+<style>
+    /* Integrated Dual-Spectrum Style System */
+    :root[data-theme="dark"] {
+        --bg-raw: #050505;
+        --bg-canvas: #090909;
+        --ink-stark: #ffffff;
+        --ink-muted: #666666;
+        --ink-ghost: #222222;
+        --accent-orange: #ff4500;
+        --accent-green: #00ffaa;
+    }
+
+    :root[data-theme="light"] {
+        --bg-raw: #f5f5f5;
+        --bg-canvas: #ededed;
+        --ink-stark: #050505;
+        --ink-muted: #888888;
+        --ink-ghost: #dcdcdc;
+        --accent-orange: #ff4500;
+        --accent-green: #00aa66;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: var(--bg-raw);
+        color: var(--ink-stark);
+        font-family: 'Space Mono', 'Courier New', monospace;
+        transition: background-color 0.15s ease, color 0.15s ease;
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    @media (min-width: 768px) {
+        body {
+            padding: 40px;
+        }
+    }
+
+    .system-frame {
+        border: 4px solid var(--ink-stark);
+        position: relative;
+        padding: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: var(--bg-raw);
+        transition: border-color 0.15s ease;
+    }
+
+    .corner-tag {
+        position: absolute;
+        font-size: 10px;
+        background: var(--ink-stark);
+        color: var(--bg-raw);
+        padding: 2px 6px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: monospace;
+    }
+    .top-left { top: -4px; left: -4px; }
+    .bottom-right { bottom: -4px; right: -4px; }
+
+    header.schema-header {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 4px solid var(--ink-stark);
+        padding-bottom: 24px;
+        margin-bottom: 30px;
+        transition: border-color 0.15s ease;
+    }
+
+    .sys-status {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--accent-green);
+        text-transform: lowercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .title-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-family: 'Archivo', 'Arial Black', sans-serif;
+        font-size: clamp(1.8rem, 4.2vw, 3.5rem);
+        font-weight: 900;
+        text-transform: lowercase;
+        line-height: 0.95;
+        color: var(--ink-stark);
+        letter-spacing: -0.04em;
+        margin: 0;
+    }
+
+    .scientific-subtitle {
+        font-family: 'Archivo', sans-serif;
+        font-size: clamp(0.95rem, 1.8vw, 1.3rem);
+        color: var(--accent-orange);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-top: 8px;
+    }
+
+    h2 {
+        font-family: 'Archivo', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-transform: lowercase;
+        color: var(--accent-orange);
+        margin-top: 35px;
+        margin-bottom: 15px;
+        letter-spacing: -0.01em;
+    }
+
+    h3 {
+        font-family: 'Archivo', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--ink-stark);
+        margin: 0 0 10px 0;
+    }
+
+    .main-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .theory-block {
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--ink-stark);
+        text-align: justify;
+    }
+
+    .engineering-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 15px;
+    }
+
+    @media (min-width: 992px) {
+        .engineering-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .tech-card {
+        border: 2px solid var(--ink-ghost);
+        background: var(--bg-canvas);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .tech-card p {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    .highlight-box {
+        border-left: 4px solid var(--accent-orange);
+        background: var(--bg-canvas);
+        padding: 18px;
+        margin: 25px 0;
+        font-size: 13px;
+        color: var(--ink-stark);
+        transition: background-color 0.15s ease;
+    }
+
+    .code-container {
+        background: var(--bg-canvas);
+        border: 1px solid var(--ink-ghost);
+        padding: 15px;
+        overflow-x: auto;
+        margin: 15px 0;
+    }
+
+    .code-container pre {
+        margin: 0;
+    }
+
+    .code-container code {
+        font-family: 'Space Mono', monospace;
+        font-size: 12px;
+        color: var(--accent-green);
+    }
+
+    .schema-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 24px;
+        font-family: monospace;
+        font-size: 0.85rem;
+        border-top: 4px solid var(--ink-stark);
+        background: var(--bg-raw);
+        transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .footer-controls {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .theme-btn {
+        background: transparent;
+        border: none;
+        color: var(--ink-stark);
+        font-family: monospace;
+        font-size: 0.85rem;
+        cursor: pointer;
+        padding: 0;
+        text-transform: lowercase;
+        font-weight: 700;
+    }
+    .theme-btn:hover {
+        color: var(--ink-muted);
+    }
+
+    .return-node {
+        color: var(--ink-stark);
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .return-node:hover {
+        text-decoration: underline;
+    }
+
+    .system-status {
+        color: var(--ink-muted);
+    }
+</style>

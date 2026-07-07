@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numogram // magpie_audio_census</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght=0,500;0,700;0,900;1,900&family=Space+Mono:ital,wght=0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <script is:inline>
+      const savedTheme = localStorage.getItem('schema-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+
+<div class="system-frame">
+    <div class="corner-tag top-left">SYS.LOC // 0x24A</div>
+    <div class="corner-tag bottom-right">v1.09_RUN</div>
+
+    <header class="schema-header">
+        <div class="sys-status">
+            <span>Core: Bioacoustic Ingestion Engine</span>
+            <span>Status: [ACTIVE]</span>
+        </div>
+        <div class="title-group">
+            <h1>magpie audio census</h1>
+            <span class="scientific-subtitle">Gymnorhina tibicen</span>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        
+        <div class="theory-block">
+            <p><strong>[PROJECT OVERVIEW]</strong> This project is an automated, end-to-end environmental monitoring system designed to track local wildlife health through sound. By deploying a weatherized microphone in the field, the system captures ambient audio, uses machine learning to isolate specific bird species, applies digital signal processing to analyze their behavior, and stores the structured results in a relational database for long-term ecological tracking.</p>
+            
+            <div class="highlight-box">
+                <strong>[THE LIFECYCLE OF A BIRDCALL]</strong><br><br>
+                • <strong>06:15 AM — Capture:</strong> A bird lands near the microphone and sings a loud, musical morning carol. The edge node registers the physical sound wave, saves it, and stamps it.<br><br>
+                • <strong>06:20 AM — Ingestion:</strong> The file is synced to the main computer. The processing engine scans the file and flags a 94% confidence match for the target species at exactly the 12-second mark.<br><br>
+                • <strong>06:21 AM — Classification:</strong> The engine evaluates the 12-second audio slice. It calculates a high harmonic ratio with zero harsh clicking spikes, automatically classifying the sound as a Carol.<br><br>
+                • <strong>06:22 AM — Storage & Analytics:</strong> Python writes a single structured row into the database. A quick relational command automatically cross-references this event against a behavioral mapping table, instantly updating a rolling visual graph of local ecosystem stability and wildlife activity.
+            </div>
+
+            <p style="margin-top: 30px; margin-bottom: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-orange);">[System Architecture]</p>
+            
+            <p><strong>1. The Edge Collector (Raspberry Pi):</strong> A weatherized Raspberry Pi is stationed outdoors. It runs a continuous background service that records environment audio in compact 5-minute blocks, compresses them into space-saving files, and automatically tags them with precise timestamp metadata.</p>
+            
+            <p><strong>2. The Data Bridge (Transit):</strong> When connected to the local network, an automated synchronization utility safely copies the accumulated audio files to a central home computer and clears the Pi's limited local storage to prevent data overflow.</p>
+            
+            <p><strong>3. The Processing Hub & Database (Home PC):</strong> A central Python script manages the heavy computational lifting in a two-stage analysis pipeline: Stage A executing machine-learning species detection to filter out background noise, and Stage B passing confirmed bird calls into digital signal processing libraries to identify specific behaviors based on physical acoustic structures before logging the data into an SQL engine.</p>
+        </div>
+
+        <div class="image-container">
+            <div class="image-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" class="poly-magpie-svg">
+                    <defs>
+                        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="var(--accent-orange)" stop-opacity="0.12" />
+                            <stop offset="100%" stop-color="var(--bg-canvas)" stop-opacity="0" />
+                        </radialGradient>
+                    </defs>
+                    
+                    <circle cx="200" cy="200" r="185" fill="url(#glow)" stroke="var(--ink-ghost)" stroke-width="1" stroke-dasharray="4 8"/>
+                    <line x1="200" y1="0" x2="200" y2="400" stroke="var(--ink-ghost)" stroke-width="1" stroke-dasharray="2 4"/>
+                    <line x1="0" y1="200" x2="400" y2="200" stroke="var(--ink-ghost)" stroke-width="1" stroke-dasharray="2 4"/>
+                    <circle cx="200" cy="200" r="90" fill="none" stroke="var(--ink-ghost)" stroke-width="0.5" stroke-dasharray="1 5"/>
+
+                    <g stroke="var(--accent-orange)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+                        <polygon points="40,145 90,130 115,135" fill="var(--bird-black)" />
+                        <polygon points="40,145 115,135 85,155" fill="var(--ink-muted)" />
+                        
+                        <polygon points="90,130 125,100 115,135" fill="var(--bird-black)" />
+                        <polygon points="85,155 115,135 105,165" fill="var(--bird-black)" />
+                        
+                        <polygon points="125,100 165,105 120,140" fill="var(--bird-white)" />
+                        <polygon points="165,105 180,135 120,140" fill="var(--bird-white)" />
+                        
+                        <polygon points="115,135 120,140 145,170" fill="var(--bird-black)" />
+                        <polygon points="115,135 145,170 105,165" fill="var(--bird-black)" />
+                        
+                        <polygon points="105,165 145,170 135,205" fill="var(--bird-black)" />
+                        <polygon points="135,205 145,170 160,245" fill="var(--bird-black)" />
+                        
+                        <polygon points="165,105 210,145 180,135" fill="var(--bird-black)" />
+                        <polygon points="180,135 210,145 180,180" fill="var(--bird-black)" />
+                        
+                        <polygon points="145,170 180,180 190,225" fill="var(--bird-black)" />
+                        <polygon points="145,170 190,225 160,245" fill="var(--bird-black)" />
+                        
+                        <polygon points="180,180 225,170 240,215" fill="var(--bird-white)" />
+                        <polygon points="180,180 240,215 190,225" fill="var(--bird-white)" />
+                        
+                        <polygon points="160,245 190,225 195,275" fill="var(--bird-black)" />
+                        <polygon points="195,275 190,225 240,215" fill="var(--bird-black)" />
+                        <polygon points="195,275 240,215 230,285" fill="var(--bird-black)" />
+                        
+                        <polygon points="210,145 255,180 225,170" fill="var(--bird-black)" />
+                        <polygon points="225,170 255,180 275,205" fill="var(--bird-black)" />
+                        
+                        <polygon points="225,170 275,205 240,215" fill="var(--bird-black)" />
+                        <polygon points="240,215 275,205 290,255" fill="var(--bird-black)" />
+                        <polygon points="240,215 290,255 230,285" fill="var(--bird-black)" />
+                        
+                        <polygon points="275,205 300,235 290,255" fill="var(--bird-white)" />
+                        
+                        <polygon points="290,255 300,235 355,275" fill="var(--bird-black)" />
+                        <polygon points="290,255 355,275 345,295" fill="var(--bird-black)" />
+                        <polygon points="290,255 345,295 230,285" fill="var(--bird-black)" />
+                        <polygon points="345,295 380,310 335,320" fill="var(--bird-black)" />
+                        <polygon points="345,295 335,320 230,285" fill="var(--bird-black)" />
+                        
+                        <polyline points="150,235 140,305 125,310" fill="none" />
+                        <polyline points="180,260 175,305 160,310" fill="none" />
+                    </g>
+                    
+                    <g fill="var(--accent-green)" font-family="monospace" font-size="8" opacity="0.8">
+                        <text x="35" y="120">pnt // 040.145.idx</text>
+                        <text x="135" y="85">patch // white.nape</text>
+                        <text x="310" y="220">vector // vector.tail_ext</text>
+                    </g>
+                </svg>
+            </div>
+            
+            <table class="metric-table">
+                <thead>
+                    <tr>
+                        <th>Behavior Type</th>
+                        <th>Acoustic Blueprint</th>
+                        <th>Isolation Method</th>
+                        <th>Ecological Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color: var(--ink-stark); font-weight: bold;">The Rattle</td>
+                        <td>Harsh, rapid-fire clicking sounds.</td>
+                        <td><strong>Zero-Crossing Rate:</strong> Tracks fast wave-crossings.</td>
+                        <td><strong>Alarm / Defense:</strong> Threat or local disturbance.</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--ink-stark); font-weight: bold;">The Carol</td>
+                        <td>Pure, flute-like tonal whistles.</td>
+                        <td><strong>Harmonic-to-Noise:</strong> Verifies clean 1–3 kHz overtones.</td>
+                        <td><strong>Territorial Presence:</strong> Bounds assertion & stability.</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--ink-stark); font-weight: bold;">The Subsong</td>
+                        <td>Quiet, structural chaotic melodies.</td>
+                        <td><strong>RMS Energy:</strong> Isolates faint volume with high variance.</td>
+                        <td><strong>Play / Practice:</strong> Low stress state or mimicry.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <footer class="schema-footer">
+        <a href="/projects" class="return-node">← return to core schema index</a>
+        <div class="footer-controls">
+            <button id="theme-toggle" class="theme-btn" aria-label="toggle system spectrum">// invert_spectrum</button>
+            <span class="system-status" id="panel-status">status // monitoring_signals</span>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('schema-theme', nextTheme);
+    });
+</script>
+
+</body>
+</html>
+
+<style>
+    /* Dual-Spectrum Global Tokens matched directly to projects.astro design rules */
+    :root[data-theme="dark"] {
+        --bg-raw: #050505;
+        --bg-canvas: #090909;
+        --ink-stark: #ffffff;
+        --ink-muted: #666666;
+        --ink-ghost: #222222;
+        --accent-orange: #ff4500;
+        --accent-green: #00ffaa;
+        
+        /* Rigid Bird Fills */
+        --bird-black: #0c0c12;
+        --bird-white: #e2e2e7;
+    }
+
+    :root[data-theme="light"] {
+        --bg-raw: #f5f5f5;
+        --bg-canvas: #ededed;
+        --ink-stark: #050505;
+        --ink-muted: #888888;
+        --ink-ghost: #dcdcdc;
+        --accent-orange: #ff4500;
+        --accent-green: #00aa66; /* Shifted slightly darker for accessibility on light canvases */
+        
+        /* Rigid Bird Fills */
+        --bird-black: #141419;
+        --bird-white: #ffffff;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: var(--bg-raw);
+        color: var(--ink-stark);
+        font-family: 'Space Mono', 'Courier New', monospace;
+        transition: background-color 0.15s ease, color 0.15s ease;
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    @media (min-width: 768px) {
+        body {
+            padding: 40px;
+        }
+    }
+
+    .system-frame {
+        border: 4px solid var(--ink-stark);
+        position: relative;
+        padding: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: var(--bg-raw);
+        transition: border-color 0.15s ease;
+    }
+
+    .corner-tag {
+        position: absolute;
+        font-size: 10px;
+        background: var(--ink-stark);
+        color: var(--bg-raw);
+        padding: 2px 6px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: monospace;
+    }
+    .top-left { top: -4px; left: -4px; }
+    .bottom-right { bottom: -4px; right: -4px; }
+
+    header.schema-header {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 4px solid var(--ink-stark);
+        padding-bottom: 24px;
+        margin-bottom: 30px;
+        transition: border-color 0.15s ease;
+    }
+
+    .sys-status {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--accent-green);
+        text-transform: lowercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .title-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-family: 'Archivo', 'Arial Black', sans-serif;
+        font-size: clamp(2.2rem, 5vw, 4.2rem);
+        font-weight: 900;
+        text-transform: lowercase;
+        line-height: 0.95;
+        color: var(--ink-stark);
+        letter-spacing: -0.04em;
+    }
+
+    .scientific-subtitle {
+        font-family: 'Archivo', sans-serif;
+        font-size: clamp(1.1rem, 2vw, 1.6rem);
+        color: var(--accent-orange);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-top: 5px;
+        font-style: italic;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    @media (min-width: 900px) {
+        .grid-container {
+            grid-template-columns: 1.2fr 1fr;
+        }
+    }
+
+    .theory-block {
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--ink-stark);
+        text-align: justify;
+    }
+
+    .theory-block p {
+        margin-bottom: 20px;
+    }
+
+    .highlight-box {
+        border-left: 4px solid var(--accent-orange);
+        background: var(--bg-canvas);
+        padding: 18px;
+        margin: 25px 0;
+        font-size: 13px;
+        color: var(--ink-stark);
+        transition: background-color 0.15s ease;
+    }
+
+    .image-container {
+        border: 2px solid var(--ink-ghost);
+        padding: 20px;
+        background: var(--bg-canvas);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .image-wrapper {
+        width: 100%;
+        border: 2px solid var(--ink-stark);
+        padding: 15px;
+        background: var(--bg-raw);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .poly-magpie-svg {
+        width: 100%;
+        height: auto;
+        max-width: 380px;
+        display: block;
+    }
+
+    .metric-table {
+        width: 100%;
+        margin-top: 25px;
+        border-collapse: collapse;
+        font-size: 11px;
+        font-family: monospace;
+    }
+
+    .metric-table th, .metric-table td {
+        border: 1px solid var(--ink-ghost);
+        padding: 10px;
+        text-align: left;
+        transition: border-color 0.15s ease;
+    }
+
+    .metric-table th {
+        color: var(--ink-stark);
+        text-transform: lowercase;
+        font-weight: 700;
+        background: var(--bg-raw);
+    }
+
+    .metric-table td {
+        color: var(--accent-green);
+    }
+
+    /* Footer Construction Sync'd with Core Framework */
+    .schema-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 24px;
+        font-family: monospace;
+        font-size: 0.85rem;
+        border-top: 4px solid var(--ink-stark);
+        background: var(--bg-raw);
+        transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .footer-controls {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .theme-btn {
+        background: transparent;
+        border: none;
+        color: var(--ink-stark);
+        font-family: monospace;
+        font-size: 0.85rem;
+        cursor: pointer;
+        padding: 0;
+        text-transform: lowercase;
+        font-weight: 700;
+    }
+    .theme-btn:hover {
+        color: var(--ink-muted);
+    }
+
+    .return-node {
+        color: var(--ink-stark);
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .return-node:hover {
+        text-decoration: underline;
+    }
+
+    .system-status {
+        color: var(--ink-muted);
+    }
+</style>
