@@ -1,5 +1,6 @@
 ---
 // src/pages/projects.astro
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <html lang="en">
@@ -19,116 +20,82 @@
 
     <div class="monograph-frame">
       
-      <!-- Running Header -->
       <header class="schema-header">
         <div class="meta-left">t.thatcher // rhizomatic matrix</div>
         <div class="meta-right">plate_2.03 // vitruvian_strata</div>
       </header>
 
-      <!-- Main Topological Grid Split -->
       <main class="diagram-matrix">
         
-        <!-- Left: Thick-Line Interactive Vector Canvas + Background Figure -->
         <section class="graphic-quadrant">
           <div class="abstract-canvas">
             
             <svg class="diagram-svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
-              <!-- BACKGROUND LAYER: Vitruvian Geometric Constraints & Proportions -->
               <g class="vitruvian-background">
-                <!-- Outer Squaring Frame and Proportional Bounds -->
                 <rect x="75" y="75" width="350" height="350" fill="none" class="vitruvian-geo" />
                 <circle cx="250" cy="250" r="195" fill="none" class="vitruvian-geo" />
                 
-                <!-- Angular Proportional Lines -->
                 <line x1="75" y1="75" x2="425" y2="425" class="vitruvian-geo" />
                 <line x1="425" y1="75" x2="75" y2="425" class="vitruvian-geo" />
 
-                <!-- Minimalist Vector Human Geometry Silhouette -->
-                <!-- Head / Cranial Node -->
                 <circle cx="250" cy="120" r="14" fill="none" class="vitruvian-body" />
-                <!-- Spine / Central Axis -->
                 <line x1="250" y1="134" x2="250" y2="310" class="vitruvian-body" />
                 
-                <!-- Stance A: Neutral Horizontal Extended Planar Pose -->
-                <line x1="250" y1="165" x2="90" y2="165" class="vitruvian-body" /> <!-- Left Arm -->
-                <line x1="250" y1="165" x2="410" y2="165" class="vitruvian-body" /> <!-- Right Arm -->
-                <line x1="250" y1="310" x2="210" y2="425" class="vitruvian-body" /> <!-- Left Leg -->
-                <line x1="250" y1="310" x2="290" y2="425" class="vitruvian-body" /> <!-- Right Leg -->
+                <line x1="250" y1="165" x2="90" y2="165" class="vitruvian-body" /> <line x1="250" y1="165" x2="410" y2="165" class="vitruvian-body" /> <line x1="250" y1="310" x2="210" y2="425" class="vitruvian-body" /> <line x1="250" y1="310" x2="290" y2="425" class="vitruvian-body" /> <line x1="250" y1="165" x2="95" y2="105" class="vitruvian-body" stroke-dasharray="4 4" /> <line x1="250" y1="165" x2="405" y2="105" class="vitruvian-body" stroke-dasharray="4 4" /> <line x1="250" y1="310" x2="155" y2="400" class="vitruvian-body" stroke-dasharray="4 4" /> <line x1="250" y1="310" x2="345" y2="400" class="vitruvian-body" stroke-dasharray="4 4" /> </g>
 
-                <!-- Stance B: Dynamic Diagonal Arc Extensions -->
-                <line x1="250" y1="165" x2="95" y2="105" class="vitruvian-body" stroke-dasharray="4 4" /> <!-- Raised Left Arm -->
-                <line x1="250" y1="165" x2="405" y2="105" class="vitruvian-body" stroke-dasharray="4 4" /> <!-- Raised Right Arm -->
-                <line x1="250" y1="310" x2="155" y2="400" class="vitruvian-body" stroke-dasharray="4 4" /> <!-- Spread Left Leg -->
-                <line x1="250" y1="310" x2="345" y2="400" class="vitruvian-body" stroke-dasharray="4 4" /> <!-- Spread Right Leg -->
-              </g>
-
-              <!-- GRAPH MATRIX LAYER: Grid Axes Lines -->
               <line class="svg-axis" x1="0" y1="250" x2="500" y2="250" />
               <line class="svg-axis" x1="250" y1="0" x2="250" y2="500" />
               
-              <!-- Interlocking Structural Rings -->
               <circle class="svg-ring real-stratum" cx="250" cy="180" r="110" />
               <circle class="svg-ring symbolic-stratum" cx="170" cy="300" r="100" />
               <circle class="svg-ring imaginary-stratum" cx="330" cy="300" r="100" />
 
-              <!-- Substantial Structural Connectors -->
               <line class="node-connector" x1="250" y1="180" x2="150" y2="220" id="line-sydney" />
               <line class="node-connector" x1="250" y1="180" x2="350" y2="200" id="line-looper" />
               <line class="node-connector" x1="170" y1="300" x2="190" y2="380" id="line-magpie" />
               <line class="node-connector" x1="330" y1="300" x2="310" y2="390" id="line-vision" />
               <line class="node-connector latent" x1="250" y1="180" x2="250" y2="90" id="line-custom" />
 
-              <!-- INTERACTIVE NODE GROUPS -->
-              <!-- node α: Sydney Routing -->
               <g class="interactive-node" id="node-sydney" tabindex="0">
                 <circle class="node-point core" cx="150" cy="220" r="12" />
                 <text class="node-label" x="55" y="200">α // syd_routing</text>
               </g>
 
-              <!-- node γ: Infinite Loop Pedal -->
               <g class="interactive-node" id="node-looper" tabindex="0">
                 <circle class="node-point core" cx="350" cy="200" r="12" />
                 <text class="node-label" x="375" y="195">γ // infinite_loop</text>
               </g>
 
-              <!-- node δ: Magpie Tracker -->
               <g class="interactive-node" id="node-magpie" tabindex="0">
                 <circle class="node-point core" cx="190" cy="380" r="12" />
                 <text class="node-label" x="80" y="405">δ // audio_census</text>
               </g>
 
-              <!-- node ε: Computer Vision / Splats -->
               <g class="interactive-node" id="node-vision" tabindex="0">
                 <circle class="node-point core" cx="310" cy="390" r="12" />
                 <text class="node-label" x="335" y="415">ε // spatial_vision</text>
               </g>
 
-              <!-- node β: Custom Spatial Tech (Latent) -->
               <g class="interactive-node" id="node-custom" tabindex="0">
                 <circle class="node-point latent" cx="250" cy="90" r="12" />
                 <text class="node-label latent" x="190" y="65">β // virtual_stratum</text>
               </g>
             </svg>
 
-            <!-- Vector Label Flags -->
             <div class="diagram-tag tag-rsi">[ r ∩ s ∩ i ]</div>
             <div class="diagram-tag tag-intensity">density // 0.94</div>
           </div>
         </section>
 
-        <!-- Right: Textual Strata -->
         <section class="textual-quadrant" id="info-panel">
           
-          <!-- Default View State -->
           <div class="info-stratum" id="stratum-default">
-            
             <h2 class="stratum-title">select a node</h2>
             <p class="stratum-abstract">
               interact directly with the vector graph trajectories to map interconnected projects, physical computing archives, and spatial routing schemas.
             </p>
           </div>
 
-          <!-- Project 1: Sydney Info -->
           <div class="info-stratum hidden" id="stratum-sydney">
             <div class="stratum-index">stratum_01 // metropolitan_routing</div>
             <h2 class="stratum-title">sydney spatial routing</h2>
@@ -136,11 +103,10 @@
               algorithmic cartography tracking network geometries, infrastructure constraints, and topological data flows across the sydney basin mesh.
             </p>
             <div class="stratum-action">
-              <a href="/sydney-routing" class="action-trigger">execute trajectory ↗</a>
+              <a href={`${baseUrl}sydney-routing`} class="action-trigger">execute trajectory ↗</a>
             </div>
           </div>
 
-          <!-- Project 2: Infinite Loop Pedal -->
           <div class="info-stratum hidden" id="stratum-looper">
             <div class="stratum-index">stratum_02 // sonic_assemblage</div>
             <h2 class="stratum-title">infinite loop architecture</h2>
@@ -148,11 +114,10 @@
               a custom digital hardware looper repurposed from a stripped laptop ecosystem. engineered to process complex sonic layers and maintain permanent, infinite signal loops without memory degradation.
             </p>
             <div class="stratum-action">
-              <a href="/looper" class="action-trigger">execute trajectory ↗</a>
+              <a href={`${baseUrl}looper`} class="action-trigger">execute trajectory ↗</a>
             </div>
           </div>
 
-          <!-- Project 3: Magpie Tracker -->
           <div class="info-stratum hidden" id="stratum-magpie">
             <div class="stratum-index">stratum_03 // bio_acoustic_vector</div>
             <h2 class="stratum-title">magpie audio census</h2>
@@ -160,11 +125,10 @@
               an embedded environmental listener parsing ecological data streams. uses a localized raspberry pi microphone array configured to isolate, decode, and track regional magpie calls.
             </p>
             <div class="stratum-action">
-              <a href="/biomap" class="action-trigger">execute trajectory ↗</a>
+              <a href={`${baseUrl}biomap`} class="action-trigger">execute trajectory ↗</a>
             </div>
           </div>
 
-          <!-- Project 4: Gaussian Splats / CV -->
           <div class="info-stratum hidden" id="stratum-vision">
             <div class="stratum-index">stratum_04 // neural_volumetrics</div>
             <h2 class="stratum-title">volumetric vision fields</h2>
@@ -176,7 +140,6 @@
             </div>
           </div>
 
-          <!-- Project 5: Custom Tech Info -->
           <div class="info-stratum hidden" id="stratum-custom">
             <div class="stratum-index">stratum_05 // virtual_plane</div>
             <h2 class="stratum-title">custom spatial tech</h2>
@@ -184,7 +147,7 @@
               archives detailing integrated spatial frameworks, geo-computational models, and embedded network topologies currently maintained in a latent state.
             </p>
             <div class="stratum-action">
-              <a href="/image-point-engine" class="action-trigger">execute trajectory ↗</a>
+              <a href={`${baseUrl}image-point-engine`} class="action-trigger">execute trajectory ↗</a>
             </div>
           </div>
 
@@ -192,9 +155,8 @@
 
       </main>
 
-      <!-- Bottom Running Footer -->
       <footer class="schema-footer">
-        <a href="/" class="return-node">← return to core schema index</a>
+        <a href={baseUrl} class="return-node">← return to core schema index</a>
         <div class="footer-controls">
           <button id="theme-toggle" class="theme-btn" aria-label="toggle system spectrum">// invert_spectrum</button>
           <span class="system-status" id="panel-status">status // awaiting_selection</span>
@@ -264,7 +226,7 @@
     --ink-stark: #ffffff;
     --ink-muted: #666666;
     --ink-ghost: #222222;
-    --ink-vitruvian: #141414; /* Deep, subtle background value */
+    --ink-vitruvian: #141414;
     --accent-signal: #e31837;
   }
 
@@ -274,7 +236,7 @@
     --ink-stark: #050505;
     --ink-muted: #888888;
     --ink-ghost: #dcdcdc;
-    --ink-vitruvian: #cccccc; /* Clear but non-intrusive layout value */
+    --ink-vitruvian: #cccccc;
     --accent-signal: #e31837;
   }
 
@@ -392,7 +354,6 @@
     z-index: 2;
   }
 
-  /* Vitruvian Geometric Background Constraints */
   .vitruvian-background {
     pointer-events: none;
     opacity: 0.65;
@@ -409,7 +370,6 @@
     transition: stroke 0.15s ease;
   }
 
-  /* Robust Structural Weights */
   .svg-axis {
     stroke: var(--ink-ghost);
     stroke-width: 3;
@@ -449,7 +409,6 @@
     transition: fill 0.2s ease;
   }
 
-  /* Active Hover State Modulations */
   .interactive-node:hover .node-point.core,
   .interactive-node.active .node-point.core {
     stroke: var(--ink-stark);
@@ -464,7 +423,6 @@
     r: 15;
   }
 
-  /* Sibling connector trace updates */
   #node-sydney:hover ~ #line-sydney, #node-sydney.active ~ #line-sydney { stroke: var(--ink-stark); stroke-width: 6; stroke-dasharray: none; }
   #node-looper:hover ~ #line-looper, #node-looper.active ~ #line-looper { stroke: var(--ink-stark); stroke-width: 6; stroke-dasharray: none; }
   #node-magpie:hover ~ #line-magpie, #node-magpie.active ~ #line-magpie { stroke: var(--ink-stark); stroke-width: 6; stroke-dasharray: none; }
@@ -488,7 +446,6 @@
   .tag-rsi { top: 0; left: 0; }
   .tag-intensity { bottom: 0; right: 0; }
 
-  /* Right Side Content Stratum */
   .textual-quadrant {
     display: flex;
     flex-direction: column;
@@ -553,14 +510,6 @@
     color: var(--ink-stark);
     font-size: 0.95rem;
     border: 2px solid var(--ink-muted);
-    padding: 10px 20px;
-  }
-
-  .action-halt {
-    font-family: monospace;
-    color: var(--ink-muted);
-    font-size: 1rem;
-    border: 2px dashed var(--ink-muted);
     padding: 10px 20px;
   }
 </style>
