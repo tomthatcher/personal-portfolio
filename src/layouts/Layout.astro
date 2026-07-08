@@ -1,13 +1,14 @@
 ---
 // This script block keeps Astro happy when reading Markdown frontmatter
 const { frontmatter } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
 		<meta name="generator" content={Astro.generator} />
 		
 		<title>{frontmatter.title}</title>
@@ -17,7 +18,7 @@ const { frontmatter } = Astro.props;
 	</head>
 	<body>
 		<nav style="padding: 1rem 2rem; background: #13151a; border-bottom: 1px solid #23262d;">
-			<a href="/" style="color: #dae5ff; text-decoration: none; font-weight: 500;">&larr; Back to Home</a>
+			<a href={baseUrl} style="color: #dae5ff; text-decoration: none; font-weight: 500;">&larr; Back to Home</a>
 		</nav>
 
 		<main style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem; color: #fff;">
