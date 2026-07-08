@@ -1,3 +1,7 @@
+---
+// Inject the ecosystem base URL to keep tracking paths dynamic
+const baseUrl = import.meta.env.BASE_URL;
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,13 +161,13 @@
 
     </div>
 
-    <footer class="schema-footer">
-        <a href="/projects" class="return-node">← return to core schema index</a>
+    <header class="schema-footer">
+        <a href={`${baseUrl}projects`} class="return-node">← return to core schema index</a>
         <div class="footer-controls">
             <button id="theme-toggle" class="theme-btn" aria-label="toggle system spectrum">// invert_spectrum</button>
             <span class="system-status" id="panel-status">status // monitoring_signals</span>
         </div>
-    </footer>
+    </header>
 </div>
 
 <script>
@@ -202,7 +206,7 @@
         --ink-muted: #888888;
         --ink-ghost: #dcdcdc;
         --accent-orange: #ff4500;
-        --accent-green: #00aa66; /* Shifted slightly darker for accessibility on light canvases */
+        --accent-green: #00aa66;
         
         /* Rigid Bird Fills */
         --bird-black: #141419;
