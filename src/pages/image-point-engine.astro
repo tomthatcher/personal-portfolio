@@ -4,6 +4,7 @@ const title = "Image-Point Vector Inversion Engine";
 const pubDate = "2026-07-06";
 const description = "A unified PyQGIS plugin architecture transforming static vector databases into dynamic, multi-modal spatial annotation canvases.";
 const author = "Tom Thatcher";
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <!DOCTYPE html>
@@ -137,7 +138,7 @@ else:
     </div>
 
     <footer class="schema-footer">
-        <a href="/projects" class="return-node">← return to core schema index</a>
+        <a href={`${baseUrl}projects/`} class="return-node">← return to core schema index</a>
         <div class="footer-controls">
             <button id="theme-toggle" class="theme-btn" aria-label="toggle system spectrum">// invert_spectrum</button>
             <span class="system-status" id="panel-status">status // synthesis_engine_online</span>
